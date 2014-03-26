@@ -13,21 +13,15 @@ class Narrative extends Narrative\Abstraction
             list($vector, $type) = array_map('trim', explode(':', $target));
         }
 
-        var_dump($vector);
-        var_dump($type);
+        //var_dump($vector);
+        //var_dump($type);
 
-        switch ($type) {
-             case 'class':
-                 $this->handle = (new Narrative\Adapter\ClassReflector($vector))->getHandle();
-                 break;
-
-             default:
-                 # code...
-                 break;
-        }
-        //new Narrative\Adapter\ClassReflector;
-        //$this->handle = new \ReflectionFunction($target);
-        //$this->handle = null;
+        /**
+         * @todo Need to lock in some checks here...
+         */
+        $adapter = sprintf(__NAMESPACE__ . '\Narrative\Adapter\%sReflector', ucfirst($type));
+        //$instance = (new \ReflectionClass($adapter))->newInstance($vector);
+        $this->handle = (new $adapter($vector))->getHandle();
     }
 
     public function getComments()

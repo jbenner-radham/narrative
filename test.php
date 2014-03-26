@@ -2,7 +2,6 @@
 
 namespace RadHam;
 
-//require __DIR__ . '/src/Narrative.php';
 require __DIR__ . '/vendor/autoload.php';
 
 /**
@@ -25,3 +24,6 @@ class Classy
 
 $narrator = new Narrative(__NAMESPACE__ . '\Classy : class');
 echo $narrator->getComments();
+
+// Without the `/** ... */`
+echo substr($narrator->getComments(), 3, -2);
