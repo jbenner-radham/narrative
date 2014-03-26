@@ -1,0 +1,21 @@
+{
+    "name": "radham/narrative",
+    "description": "DocBlock reader and parser.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "James Benner",
+            "email": "james.benner@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+
+    },
+    "autoload": {
+        "psr-4": {
+            "RadHam\\": "src/",
+            "RadHam\\Narrative\\": "src/Narrative/"
+        }
+    }
+}
